@@ -1,6 +1,6 @@
 #include <SoftwareSerial.h> // Permite a comunicação serial em outros pinos, além do padrão
 #include <AFMotor.h> // Controla os motores DC usando a AdaFruit Motor Shield
-#include <Servo.h>
+#include <Servo.h> // Usado para controlar o motor da bomba
 
 int RELAY1 = A0; // Pino para o relé da bomba
 int state1 = 0;  // Estado da bomba
@@ -17,10 +17,10 @@ Servo meuServo;
 // Variavel que armazena os comandos recebidos pelo controle
 char bt = 'S';
 
-// Velocidade dos motores para 150
 void setup()
 {
-  Serial.begin(9600);
+  Serial.begin(9600); // Define uma taxa de transmissão de 9600 bits por segundo (baud rate) para a comunicação serial
+  // Velocidade dos motores para 150
   motor1.setSpeed(150);
   motor2.setSpeed(150);
   motor3.setSpeed(150);
